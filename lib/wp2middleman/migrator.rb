@@ -8,6 +8,7 @@ module WP2Middleman
       @posts = WP2Middleman::PostCollection.from_file(wp_xml_export_file)
         .without_attachments
         .only_valid
+        .only_published
         .to_middleman(body_to_markdown: body_to_markdown, include_fields: include_fields)
     end
 

@@ -10,6 +10,10 @@ module WP2Middleman
       wp_post.title
     end
 
+    def post_name
+      wp_post.post_name
+    end
+
     def title_for_filename
       title.gsub(/[^\w\s_-]+/, '')
         .gsub(/(^|\b\s)\s+($|\s?\b)/, '\\1\\2')
@@ -17,7 +21,7 @@ module WP2Middleman
     end
 
     def filename
-      "#{date_published}-#{title_for_filename}"
+      "#{post_name}"
     end
 
     def date_published
@@ -25,7 +29,7 @@ module WP2Middleman
     end
 
     def full_filename output_path
-      "#{output_path}#{filename}.html.markdown"
+      "#{output_path}#{filename}.html.erb"
     end
 
     def file_content

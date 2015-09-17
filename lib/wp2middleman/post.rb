@@ -36,6 +36,10 @@ module WP2Middleman
       post.xpath("wp:status").first.inner_text
     end
 
+    def post_name
+      post.xpath("wp:post_name").first.inner_text
+    end
+
     def type
       post.xpath("wp:post_type").first.inner_text
     end
